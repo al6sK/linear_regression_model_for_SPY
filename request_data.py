@@ -4,37 +4,38 @@ import time
 spy = yf.Ticker("SPY")
 df = spy.history(start="1993-01-29", interval="1d")
 df.to_csv("data/USA_Markets/SPY_2025.csv")
-time.sleep(1)  
+
 sp500 = yf.Ticker("^GSPC")
 df = sp500.history(start="1993-01-29", interval="1d")
 df.to_csv("data/USA_Markets/S&P500_2025.csv")
-time.sleep(1) 
+
 nasdaq = yf.Ticker("^IXIC")
 df = nasdaq.history(start="1993-01-29", interval="1d")
 df.to_csv("data/USA_Markets/NASDAQ_2025.csv")
+
 dji = yf.Ticker("^DJI")
 df = dji.history(start="1993-01-29", interval="1d")
 df.to_csv("data/USA_Markets/Dji_2025.csv")
-time.sleep(1) 
+
 # Europe markets
 cac40 = yf.Ticker("^FCHI")
 df = cac40.history(start="1993-01-29", interval="1d")
 df.to_csv("data/EU_Markets/CAC40_2025.csv")
-time.sleep(1)  
+
 daxi = yf.Ticker("^GDAXI")
 df = daxi.history(start="1993-01-29", interval="1d")
 df.to_csv("data/EU_Markets/DAX_2025.csv")
-time.sleep(1)  
+ 
 # Asian markets
 aord = yf.Ticker("^AORD")
 df = aord.history(start="1993-01-29", interval="1d")
 df.to_csv("data/Asian_Markets/Aord_2025.csv")
-time.sleep(1) 
+
 hsi = yf.Ticker("^HSI")
 df = hsi.history(start="1993-01-29", interval="1d")
 df.to_csv("data/Asian_Markets/HSI_2025.csv")
-time.sleep(1)  
+ 
 nikkei = yf.Ticker("^N225")
-df = spy.history(start="1993-01-29", interval="1d")
+df = nikkei.history(start="1993-01-29", interval="1d")
 df.to_csv("data/Asian_Markets/Nikkei_2025.csv")
 
