@@ -31,7 +31,7 @@ indicepanel['dji'] = dji['Open'] - dji['Open'].shift(1)
 indicepanel['cac40'] = cac40['Open'] - cac40['Open'].shift(1)
 indicepanel['daxi'] = daxi['Open'] - daxi['Open'].shift(1)
 
-indicepanel['aord'] = aord['Close'] - aord['Open'] 
+indicepanel['aord'] = aord['Close'] - aord['Open']
 indicepanel['hsi'] = hsi['Close'] - hsi['Open']
 indicepanel['nikkei'] = nikkei['Close'] - nikkei['Open']
 
@@ -50,8 +50,15 @@ indicepanel = indicepanel.dropna()
 # data splitting
 #_________________________
 
-Train = indicepanel.iloc[-2000:-1000,:].copy()
-Test = indicepanel.iloc[-1000:,:].copy()
+split_index = int(len(indicepanel) * 0.42)
+
+Train = indicepanel.iloc[:split_index, :].copy()
+Test = indicepanel.iloc[split_index:, :].copy()
+
+
+# Train = indicepanel.iloc[-2000:-1000,:].copy()
+# Test = indicepanel.iloc[-1000:,:].copy()
+
 #print(Train.shape, Test.shape)
 
 sm = scatter_matrix(Train, alpha=0.2, figsize=(10, 10))
@@ -190,5 +197,3 @@ Test['Drawdown'] = (Test['Peak'] - Test['Wealth'] ) / Test['Peak']
 print("")
 print("Maximum drawdonw in train is ", Train['Drawdown'].max())
 print("Maximum drawdonw in test is ", Test['Drawdown'].max())
-
-
